@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <title>Attendee Dashboard</title>
+</head>
+
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <span class="navbar-brand mb-0 h1">Welcome, <%= user.name %> (Attendee)</span>
+        <a href="/logout" class="btn btn-danger btn-sm">Logout</a>
+    </nav>
+
+    <div class="container">
+        <div class="card mb-5 shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">Book an Event</h4>
+            </div>
+            <div class="card-body">
+                <form action="/attendee/book" method="POST">
+                    <div class="form-group">
+                        <label><strong>Select Event to Book</strong></label>
+                        <select name="eventId" class="form-control" required>
+                            <option value="" disabled selected>Choose an available event...</option>
+                            <% events.forEach(function(event) { %>
+                                <% if(event.organizer) { %>
+                                    <option value="<%= event._id %>">
+                                        <%= event.name %> (by <%= event.organizer.name %>) - <%= event.weekdays %>, <%=
+                                                        event.time %>
+                                    </option>
+                                    <% } %>
+                                        <% }) %>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-success px-4">Book Now</button>
+                </form>
+            </div>
+        </div>
+
+        <h3>Your Booked Events</h3>
+        <hr>
+        <div class="row">
+            <% if(bookings.length> 0) { %>
+                <% bookings.forEach(function(booking) { %>
+                    <div class="col-md-4 mb-3">
+                        <div class="card border-info">
+                            <div class="card-body">
+                                <h5 class="card-title text-info">
+                                    <%= booking.eventName %>
+                                </h5>
+                                <p class="card-text mb-1"><strong>Organizer:</strong>
+                                    <%= booking.organizerName %>
+                                </p>
+                                <p class="card-text mb-1"><strong>Weekday:</strong> <span class="text-capitalize">
+                                        <%= booking.weekday %>
+                                    </span></p>
+                                <p class="card-text mb-0"><strong>Time:</strong>
+                                    <%= booking.time %>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <% }) %>
+                        <% } else { %>
+                            <div class="col-12">
+                                <div class="alert alert-warning">No events booked yet.</div>
+                            </div>
+                            <% } %>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
