@@ -58,7 +58,8 @@ npm start
 The server will start at `http://localhost:7000`.
 
 ## 📂 Folder Structure
-\`\`\`text
+\`\`\`
+
 ├── app/
 │   ├── config/          # Database connection (db.js)
 │   ├── controllers/     # Route logic (Auth, Organizer, Attendee)
@@ -71,3 +72,4 @@ The server will start at `http://localhost:7000`.
 └── package.json         # Project metadata and dependencies
 \`\`\`
 
+---
