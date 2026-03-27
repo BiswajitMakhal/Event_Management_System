@@ -58,7 +58,7 @@ npm start
 The server will start at `http://localhost:7000`.
 
 ## 📂 Folder Structure
-\`\`\`
+
 Event_Management_System/
 ├── app/
 │   ├── config/          # Database configuration setup
@@ -69,6 +69,6 @@ Event_Management_System/
 ├── views/               # Frontend UI templates (EJS files)
 ├── .env                 # Environment variables (PORT, JWT_SECRET, etc. - User needs to create this)
 └── app.js               # Main entry point to start the Node.js server
-\`\`\`
+
 
 ---
