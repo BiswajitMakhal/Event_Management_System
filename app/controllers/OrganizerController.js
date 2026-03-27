@@ -26,6 +26,18 @@ class OrganizerController {
     try {
       const { name, weekdays, time } = req.body;
 
+      const existingEvent = await Event.findOne({
+        organizer: req.user.id,
+        time: time,
+        weekdays: { $in: weekdays },
+      });
+
+      if (existingEvent) {
+        return res.send(
+          "Conflict error! You already have an event scheduled on one of these days at this time.",
+        );
+      }
+
       const newEvent = new Event({
         name,
         weekdays,
@@ -37,6 +49,7 @@ class OrganizerController {
       res.redirect("/organizer/dashboard");
     } catch (err) {
       console.log(err);
+      res.send("Event add korte problem hoche.");
     }
   }
 }

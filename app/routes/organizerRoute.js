@@ -8,3 +8,5 @@ router.get("/dashboard", CheckAuth,isOrganizer, OrganizerController.dashboard);
 router.post("/event/add", CheckAuth,isOrganizer, OrganizerController.addEvent);
 
 module.exports = router;
+
+

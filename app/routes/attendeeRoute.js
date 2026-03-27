@@ -8,3 +8,4 @@ router.get("/dashboard", CheckAuth,isAttendee, AttendeeController.dashboard);
 router.post("/book", CheckAuth,isAttendee, AttendeeController.bookEvent);
 
 module.exports = router;
+

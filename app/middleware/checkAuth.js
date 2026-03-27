@@ -20,7 +20,7 @@ const isOrganizer = (req, res, next) => {
   if (req.user && req.user.role === "Organizer") {
     next();
   } else {
-    return res.redirect("/attendee/dashboard");
+    return res.redirect("/login/view");
   }
 };
 
@@ -28,7 +28,7 @@ const isAttendee = (req, res, next) => {
   if (req.user && req.user.role === "Attendee") {
     next();
   } else {
-    return res.redirect("/organizer/dashboard");
+    return res.redirect("/login/view");
   }
 };
 
