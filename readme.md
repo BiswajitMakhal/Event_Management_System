@@ -1,16 +1,11 @@
-## ENV VARIABLE NAME:
-
-** MONGODB:
-MONGO_URL
-
-** JWT:
-JWT_SECRET_KEY 
-
-\`\`\`
-
 # Event Management System
 
 A simple, role-based Event Management System built with Node.js, Express, MongoDB, and EJS. This system allows Organizers to schedule events and Attendees to book them without any time conflicts.
+
+## 🔑 Environment Variables
+Create a `.env` file in the root directory and add the following variables:
+* **MONGO_URL**: Your MongoDB connection string.
+* **JWT_SECRET_KEY**: Your secret key for JWT authentication.
 
 ## 🚀 Features
 
@@ -40,25 +35,25 @@ A simple, role-based Event Management System built with Node.js, Express, MongoD
 ## ⚙️ Installation & Setup
 
 **1. Clone the repository:**
-\`\`\`bash
+```bash
 git clone <your-github-repo-url>
 cd Event_Management_System
-\`\`\`
+```
 
 **2. Install dependencies:**
-\`\`\`bash
+```bash
 npm install
-\`\`\`
-
+```
 
 **3. Run the application:**
-\`\`\`bash
+```bash
 npm start
-\`\`\`
+```
 The server will start at `http://localhost:7000`.
 
 ## 📂 Folder Structure
 
+```text
 Event_Management_System/
 ├── app/
 │   ├── config/          # Database configuration setup
@@ -69,3 +64,4 @@ Event_Management_System/
 ├── views/               # Frontend UI templates (EJS files)
 ├── .env                 # Environment variables (User needs to create this)
 └── app.js               # Main entry point to start the Node.js server
+```
