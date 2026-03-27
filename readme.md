@@ -59,17 +59,16 @@ The server will start at `http://localhost:7000`.
 
 ## 📂 Folder Structure
 \`\`\`
-
+Event_Management_System/
 ├── app/
-│   ├── config/          # Database connection (db.js)
-│   ├── controllers/     # Route logic (Auth, Organizer, Attendee)
-│   ├── middleware/      # JWT & Role checking (checkAuth.js)
-│   ├── models/          # Mongoose schemas (User, Event, Booking)
-│   └── routes/          # Express route definitions
-├── views/               # EJS template files (login, register, attendee, organizer)
-├── .env                 # Environment variables
-├── app.js               # Application entry point
-└── package.json         # Project metadata and dependencies
+│   ├── config/          # Database configuration setup
+│   ├── controllers/     # Main logic for Auth, Organizer, and Attendee
+│   ├── middleware/      # JWT authentication and user role validation
+│   ├── models/          # MongoDB schemas (User, Event, Booking)
+│   └── routes/          # API and web route definitions
+├── views/               # Frontend UI templates (EJS files)
+├── .env                 # Environment variables (PORT, JWT_SECRET, etc. - User needs to create this)
+└── app.js               # Main entry point to start the Node.js server
 \`\`\`
 
 ---
