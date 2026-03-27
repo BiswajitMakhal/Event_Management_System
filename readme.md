@@ -67,8 +67,5 @@ Event_Management_System/
 │   ├── models/          # MongoDB schemas (User, Event, Booking)
 │   └── routes/          # API and web route definitions
 ├── views/               # Frontend UI templates (EJS files)
-├── .env                 # Environment variables (PORT, JWT_SECRET, etc. - User needs to create this)
+├── .env                 # Environment variables (User needs to create this)
 └── app.js               # Main entry point to start the Node.js server
-
-
----
