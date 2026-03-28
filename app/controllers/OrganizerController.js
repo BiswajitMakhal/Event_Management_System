@@ -49,7 +49,6 @@ class OrganizerController {
       res.redirect("/organizer/dashboard");
     } catch (err) {
       console.log(err);
-      res.send("Event add korte problem hoche.");
     }
   }
 }
