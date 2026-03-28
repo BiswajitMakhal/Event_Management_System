@@ -10,24 +10,30 @@ class AuthEjsController {
       console.log(err);
     }
   }
-  async registerCreate(req, res) {
+ async registerCreate(req, res) {
+  try {
     const { name, email, password } = req.body;
+
     if (!name || !email || !password) {
       return res.redirect("/register/view");
     }
+
     const existingUser = await User.findOne({ email: email });
+
     if (existingUser) {
       return res.redirect("/login/view");
     }
+
     const salt = await bcryptjs.genSalt(10);
-    const hasPassword = await bcryptjs.hash(password, salt);
+    const hashPassword = await bcryptjs.hash(password, salt);
 
     const userData = new User({
       name,
       email,
       role: "Attendee",
-      password: hasPassword,
+      password: hashPassword,
     });
+
     const user = await userData.save();
 
     if (user) {
@@ -35,11 +41,12 @@ class AuthEjsController {
     } else {
       return res.redirect("/register/view");
     }
-  }
-  catch(error) {
+
+  } catch (error) {
     console.log(error);
     return res.redirect("/register/view");
   }
+}
 
   async LoginView(req, res) {
     res.render("login");
